@@ -1,0 +1,21 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity CIComb is 
+	port(
+	 A,B,C: in std_logic;
+	 Y: out std_logic
+	);
+end CIcomb;
+
+architecture comportamental of CIcomb is
+	signal espera : std_logic;
+	signal espera2 : std_logic;
+		begin
+			espera <= b AND c;
+			espera2 <= a or espera;
+			Y <= espera2 or b;
+			
+	
+end comportamental;
+
