@@ -1,0 +1,31 @@
+library ieee;
+use iee.std_logic_1164.all;
+
+entity mux4to1 is 
+port(
+	In1 : in STD_LOGIC_VECTOR(3 downto 0);
+	In2 : in STD_LOGIC_VECTOR(3 downto 0);
+	In3 : in STD_LOGIC_VECTOR(3 downto 0);
+	In4 : in STD_LOGIC_VECTOR(3 downto 0);
+	sel : in STD_LOGIC_VECTOR(1 downto 0);
+	Q : out STD_LOGIC_VECTOR(3 downto 0)
+);
+end mux4to1;
+architecture comportamental of mux4to1 is
+begin
+	process(In1,In2,In3,In4,sel)
+	begin
+		case sel is
+		  when "00" =>
+			 Q1 <= In1;
+		  when "01" =>
+			 Q2 <= In2;
+		  when "10" =>
+			 Q3 <= In3;
+		  when "11" =>
+			 Q4 <= In4;
+		  when others =>
+			null;
+		end case;
+	end process;
+end comportamental;
