@@ -1,0 +1,28 @@
+# introdução ao assembly
+
+$zero = sempre vale 0 
+$at = reservado ao montador(assmbler temporary)
+$v0 , $v1 = valores de retorno de funções
+$a0 - $a3 = argumentos passado para as funções/syscalls
+$t0 - $t7 = registradores temporarios
+$s0 - $s7 = ajuda na chamada de funções
+$t8, $t9 = ajuda na chamadas das funções
+$k0, $k1 = reservados ao sistema
+
+
+exemplo: 
+
+.data 
+# aqui ficam declaradas as variáveis do programa
+prompt: .asciiz "Digite o seu nome: "
+nome: .space 50
+saída: .asciiz "Seu nome é: "
+
+.text
+.globl main
+main:
+	# aqui fica o código executável (as instruções)
+	li $v0, 4 
+	la $a0 prompt
+	syscall
+	
